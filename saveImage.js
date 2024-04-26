@@ -1,9 +1,9 @@
 
-function keyTyped() {
-  if (key === 's') {
-    saveImage();
-  }
-}
+// function keyTyped() {
+//   if (key === 's') {
+//     saveImage();
+//   }
+// }
 
 // Save generated image
 const saveImage = () => {

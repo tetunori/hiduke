@@ -1,6 +1,10 @@
-let myBelong1 = "--所属1--";
-let myBelong2 = "xxx所属2xxx";
-let myName = "【名前】";
+
+const gOptions = {
+  belonging1: '--所属1--',
+  belonging2: 'xxx所属2xxx',
+  date: '\'24/04/27',
+  name: '【名前】',
+}
 
 //////////////////////////////////
 const canvasSize = 360;
@@ -14,19 +18,38 @@ function setup() {
   textAlign(CENTER, CENTER);
 
   const urlSP = new URLSearchParams(window.location.search);
+
+  const opt = gOptions;
+
   // Handle Queries
   for (const [key, val] of urlSP) {
     if (key === "blng1") {
-      myBelong1 = val;
+      opt.belonging1 = val;
     } else if (key === "blng2") {
-      myBelong2 = val;
+      opt.belonging2 = val;
     } else if (key === "name") {
-      myName = val;
+      opt.name = val;
+    } else if (key === "date") {
+      opt.date = val;
     }
   }
+
+  if(!urlSP.has('date')){
+    opt.date = getYYMMDD();
+  }
+
+  // Prepare GUI
+  prepareDatGUI(opt);
+
 }
 
 function draw() {
+  const opt = gOptions;
+  opt.belonging1 = HidukeinnOptions.belonging1;
+  opt.belonging2 = HidukeinnOptions.belonging2;
+  opt.date = HidukeinnOptions.date;
+  opt.name = HidukeinnOptions.name;
+
   clear();
   noFill();
   strokeWeight(6);
@@ -52,19 +75,19 @@ function draw() {
 
   // Date
   textSize(50);
-  text(getYYMMDD(), width / 2, height / 2);
+  text(opt.date, width / 2, height / 2);
 
   // Name
   textSize(60);
   const nameYOffset = height * 0.24;
-  text(myName, width / 2, height / 2 + nameYOffset);
+  text(opt.name, width / 2, height / 2 + nameYOffset);
 
   // Belonging
   textSize(40);
   const Blg1YOffset = height * 0.33;
-  text(myBelong1, width / 2, height / 2 - Blg1YOffset);
+  text(opt.belonging1, width / 2, height / 2 - Blg1YOffset);
   const Blg2YOffset = height * 0.2;
-  text(myBelong2, width / 2, height / 2 - Blg2YOffset);
+  text(opt.belonging2, width / 2, height / 2 - Blg2YOffset);
 }
 
 // get Timestamp string

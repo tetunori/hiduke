@@ -1,5 +1,6 @@
 # 日付印 tool
 Version 0.7.0  
+<img src="./images/hidukeinn.png" width="360px"/>
 
 # Description🖊️
 自分のためだけの日付印をダウンロードできるツールです。
