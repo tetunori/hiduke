@@ -4,6 +4,7 @@ const gOptions = {
   belonging2: 'xxx所属2xxx',
   date: '\'24/04/27',
   name: '【名前】',
+  fill: false,
 }
 
 //////////////////////////////////
@@ -38,6 +39,10 @@ function setup() {
     opt.date = getYYMMDD();
   }
 
+  if(urlSP.has('fill')){
+    opt.fill = true;
+  }
+
   // Prepare GUI
   prepareDatGUI(opt);
 
@@ -49,9 +54,14 @@ function draw() {
   opt.belonging2 = HidukeinnOptions.belonging2;
   opt.date = HidukeinnOptions.date;
   opt.name = HidukeinnOptions.name;
+  opt.fill = HidukeinnOptions.fill;
 
   clear();
-  noFill();
+  if(opt.fill){
+    fill('white');
+  }else{
+    noFill();
+  }
   strokeWeight(6);
 
   circle(width / 2, height / 2, diameter);

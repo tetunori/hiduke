@@ -24,6 +24,7 @@ const prepareDatGUI = (opt) => {
   HidukeinnOptionsDefault.belonging2 = opt.belonging2;
   HidukeinnOptionsDefault.date = opt.date;
   HidukeinnOptionsDefault.name = opt.name;
+  HidukeinnOptionsDefault.fill = opt.fill;
   initializeSettings();
 
   const step = 1;
@@ -31,6 +32,7 @@ const prepareDatGUI = (opt) => {
   optionFolder.add(HidukeinnOptions, 'belonging2');
   optionFolder.add(HidukeinnOptions, 'date');
   optionFolder.add(HidukeinnOptions, 'name');
+  optionFolder.add(HidukeinnOptions, 'fill');
   optionFolder.open();
 
   //  -- Utilities
@@ -43,5 +45,6 @@ const initializeSettings = () => {
   HidukeinnOptions.belonging2 = HidukeinnOptionsDefault.belonging2;
   HidukeinnOptions.date = HidukeinnOptionsDefault.date;
   HidukeinnOptions.name = HidukeinnOptionsDefault.name;
+  HidukeinnOptions.fill = HidukeinnOptionsDefault.fill;
   gui.updateDisplay();
 };
