@@ -1,21 +1,20 @@
-
 const gOptions = {
   belonging1: '--所属1--',
   belonging2: 'xxx所属2xxx',
-  date: '\'24/04/27',
+  date: "'24/04/27",
   name: '【名前】',
   fill: false,
-}
+};
 
 //////////////////////////////////
 const canvasSize = 360;
 const diameter = canvasSize * 0.9;
-const hankoColor = "#d94236";
+const hankoColor = '#d94236';
 
 function setup() {
   createCanvas(canvasSize, canvasSize);
   stroke(hankoColor);
-  textFont("Noto Sans JP");
+  textFont('Noto Sans JP');
   textAlign(CENTER, CENTER);
 
   const urlSP = new URLSearchParams(window.location.search);
@@ -24,28 +23,27 @@ function setup() {
 
   // Handle Queries
   for (const [key, val] of urlSP) {
-    if (key === "blng1") {
+    if (key === 'blng1') {
       opt.belonging1 = val;
-    } else if (key === "blng2") {
+    } else if (key === 'blng2') {
       opt.belonging2 = val;
-    } else if (key === "name") {
+    } else if (key === 'name') {
       opt.name = val;
-    } else if (key === "date") {
+    } else if (key === 'date') {
       opt.date = val;
     }
   }
 
-  if(!urlSP.has('date')){
+  if (!urlSP.has('date')) {
     opt.date = getYYMMDD();
   }
 
-  if(urlSP.has('fill')){
+  if (urlSP.has('fill')) {
     opt.fill = true;
   }
 
   // Prepare GUI
   prepareDatGUI(opt);
-
 }
 
 function draw() {
@@ -57,9 +55,9 @@ function draw() {
   opt.fill = HidukeinnOptions.fill;
 
   clear();
-  if(opt.fill){
+  if (opt.fill) {
     fill('white');
-  }else{
+  } else {
     noFill();
   }
   strokeWeight(6);
@@ -67,18 +65,8 @@ function draw() {
   circle(width / 2, height / 2, diameter);
   const dateHeight = diameter * 0.25;
   const lineXOffset = diameter * 0.08;
-  line(
-    lineXOffset,
-    height / 2 - dateHeight / 2,
-    width - lineXOffset,
-    height / 2 - dateHeight / 2
-  );
-  line(
-    lineXOffset,
-    height / 2 + dateHeight / 2,
-    width - lineXOffset,
-    height / 2 + dateHeight / 2
-  );
+  line(lineXOffset, height / 2 - dateHeight / 2, width - lineXOffset, height / 2 - dateHeight / 2);
+  line(lineXOffset, height / 2 + dateHeight / 2, width - lineXOffset, height / 2 + dateHeight / 2);
 
   fill(hankoColor);
   strokeWeight(0);
@@ -106,8 +94,8 @@ const getYYMMDD = () => {
   let retVal = "'";
 
   // YYMMDD
-  retVal += now.getFullYear().toString().slice(-2) + "/";
-  retVal += padZero2Digit(now.getMonth() + 1) + "/";
+  retVal += now.getFullYear().toString().slice(-2) + '/';
+  retVal += padZero2Digit(now.getMonth() + 1) + '/';
   retVal += padZero2Digit(now.getDate());
 
   return retVal;
