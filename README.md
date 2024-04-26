@@ -16,7 +16,7 @@ https://tetunori.github.io/hiduke?name=佐藤(英)&blng1=ABC Corp.&blng2=DEV設�
 ```
 [実際のURL](https://tetunori.github.io/hiduke?name=佐藤(英)&blng1=ABC%20Corp.&blng2=DEV設計部門)
 
-`S`キーを押すとPNG画像をダウンロードできます。
+なお、`&date=<日付>`で当日以外も指定可能です。
 
 # License⚖️
 Copyright (c) 2024 [Tetsunori Nakayama](https://github.com/tetunori). MIT License.
