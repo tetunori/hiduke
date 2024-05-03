@@ -12,6 +12,10 @@ const utilities = {
   Download: () => {
     saveImage();
   },
+  GitHub: () => {
+    window.open("https://github.com/tetunori/hiduke", "_blank");
+  },
+
 };
 
 const prepareDatGUI = (opt) => {
@@ -36,6 +40,7 @@ const prepareDatGUI = (opt) => {
   optionFolder.open();
 
   //  -- Utilities
+  gui.add(utilities, 'GitHub');
   gui.add(utilities, 'Download');
 };
 
